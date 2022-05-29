@@ -1,0 +1,37 @@
+Static variables :-
+ These members gets loaded in the RAM automatically by JVM and the members get available to CPU for execution.
+and We can directly access static members inside main method.
+
+Non - static variables :-
+ We need to create objects to access them inside main method and after creating objects, then only they will get load in RAM and after that only CPU will be able to access them.
+if we do not create objects, then we will not be able to access them in main method.
+
+EXAMPLE :-
+package com.masai;
+public class Demo{
+
+	String i = "Hellwo";
+	static String j = "Utkarsh";
+	
+	void fun1(){
+		System.out.println("Hello");
+	}
+	
+	public static main void(String[] args){
+		System.out.println(i); --> throw error
+		System.out.println(j);
+		fun1(); --> throw error
+		
+		since int i and fun() both are non static, means, their values are not loaded in RAM and we know that 
+		for CPU to execute something, that thing must be loaded in RAM and so CPU can not get 
+		their values and that is why it will throw error.
+		
+		Now if i create an object :-
+		Demo obj1 = new Demo(obj1.i);
+		System.out.println(i);
+		System.out.println(j);
+		obj1.fun1();
+		by doing this all the non static will get loaded in heap area and obj1 will contain their address and
+		now CPU will be able to get their values and show us the required output.
+	}
+}
